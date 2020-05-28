@@ -215,6 +215,9 @@ master key.</dd></di>
   </payload>
 </signcrypt>]]></example>
 
+	<!-- TODO: Add reference to "Davis, Don. "Defective Sign &amp; Encrypt in S/MIME, PKCS# 7, MOSS, PEM,
+	PGP, and XML." USENIX Annual Technical Conference, General Track. 2001." -->
+
     <p>OpenPGP content elements MUST possess exactly one 'time'
     element as direct child elements. The &signcrypt; and &crypt;
     content elements MUST contain at least one 'to' element(s), which
