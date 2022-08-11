@@ -166,6 +166,44 @@
 	<li>The value of the 'by' attribute MUST be the XMPP address of the entity assigning the unique and stable stanza ID. For one-on-one messages the assigning entity is the account. In groupchats the assigning entity is the room. Note that XMPP addresses are normalized as defined in &rfc6122;.</li>
   </ol>
 </section1>
+
+<section1 topic='Examples' anchor='examples'>
+
+  <section2 topic='One-to-one messaging' anchor='example-one-to-one'>
+	<p>A one-to-one message send from alice@source.org to
+	bob@destination.net may arrive with the following &stanza-id;
+	elements at Bob.</p>
+	<example caption='A message sent from Alice to Bob may arrive with two &stanza-id;s at Bob'><![CDATA[
+<message
+  id='Wo8ThoRu'
+  from='alice@source.org/alices-resource'
+  to='bob@destination.org/bobs-resource'>
+    <stanza-id by='alice@source.org' id='oox8oosh2cee5EeX6wieZ4se'/>
+    <stanza-id by='bob@destination.net' id='Can4ieT0aere4shiovie5ohy'/>
+    <body>Hello Bob, how are you?</body>
+</message>
+]]></example>
+  </section2>
+
+  <section2 topic='Groupchat messaging' anchor='example-groupchat'>
+	<p>A groupchat message send from alice@source.org to
+	groupchat@example.org may arrive with the following &stanza-id;
+	elements at bob@destination.net.</p>
+	<example caption='A message sent from Alice to Bob may arrive with two &stanza-id;s at Bob'><![CDATA[
+<message
+  from='coven@chat.shakespeare.lit/thirdwitch'
+  id='hysf1v37'
+  to='crone1@shakespeare.lit/desktop'
+  type='groupchat'>
+    <stanza-id by='coven@chat.shakespeare.lit' id='bah5peb6suu1Eej1keep7poj'/>
+    <stanza-id by='crone1@shakespare.lit' id='ooR5ahngah2eelai3the9aek'/>
+    <body>Harpier cries: 'tis time, 'tis time.</body>
+</message>
+]]></example>
+  </section2>
+  
+</section1>
+
 <section1 topic='Discovering Support' anchor='disco'>
   <p>An entity that follows the business rules, especially the rule on overriding the ID in elements where the by atttribute matches the 'by' attribute they would otherwise set, SHOULD announce the 'urn:xmpp:sid:0' namespace in its disco features allowing other entities to verify that those business rules are properly enforced.</p>
   <example caption='Client sends service discovery request to the room'><![CDATA[
