@@ -1486,6 +1486,36 @@
     .box {
         border-radius: 0;
     }
+
+    input.remark-switch ~ span.remark-text {
+        display: none;
+    }
+    input.remark-switch:checked ~ span.remark-text {
+        display: inline-block;
+        float: right;
+        border: 1px solid black;
+        margin: 0;
+        padding: 0.5em;
+        max-width: 33em;
+        background: rgba(255, 0, 0, 0.1);
+    }
+    input.remark-switch {
+        display: none;
+    }
+    span.remark-label-right {
+        float: right;
+        border: 1px solid black;
+        margin: 0;
+        padding: 0 0.5em;
+        margin-right: -1em;
+        padding-right: 1em;
+        background: rgba(255, 0, 0, 0.1);
+    }
+    input.remark-switch:checked ~ span.remark-label-right {
+        margin-right: 0;
+        padding-right: 0.5em;
+        border-right: 0;
+    }
 }
 
 @media screen and ( min-width: 75em ) {

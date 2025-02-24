@@ -1233,9 +1233,21 @@ content: "XEP-<xsl:value-of select='/xep/header/number'/>";
     <xsl:variable name='firstOccurrence' select='(//note[. = $me])[1]' />
     <xsl:variable name='oid' select='generate-id($firstOccurrence)' />
     <xsl:variable name='notenum' select='count($firstOccurrence/preceding::note[not(.=preceding::note)]) + count($me/ancestor::note) + 1' />
+    <label for="remarkinput-{$oid}">
+	<!--
+	-->
+        <input class="remark-switch" type="checkbox" id="remark-{$oid}"/>
+          <sup id="remark-{$oid}"><a href='#nt-{$oid}'><xsl:value-of select='$notenum'/></a></sup>
+          <span class="remark-text">
+            <xsl:value-of select='$me'/>
+          </span>
+          <span class="remark-label-right"><xsl:value-of select='$notenum'/></span>
+	 </label>
+	<!--
     <xsl:text> [</xsl:text><a href='#nt-{$oid}'>
     <xsl:value-of select='$notenum'/></a>
     <xsl:text>]</xsl:text>
+	-->
   </xsl:template>
 
 <!-- PRESENTATIONAL ELEMENTS -->
